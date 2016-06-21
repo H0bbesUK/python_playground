@@ -75,7 +75,7 @@ def final(current_count):
 	time.sleep(timer)
 	print "It is brightly lit with flaming torches."
 	time.sleep(timer)
-	print "In the middle of the room stands the tresure chest."
+	print "In the middle of the room stands the treasure chest."
 	chosing(chest_options, current_count)
 
 
@@ -107,12 +107,12 @@ def start(current_count):
 	print """
 Welcome to the treasure castle, %s.
 you have played this game %d times.
-You look around and see a large castle with big double oak doors..""" % (name[0], current_count)
+You look around and see a large castle with big double oak doors...""" % (name[0], current_count)
 	current_count += 1
 	time.sleep(timer)
 	print """
 You open the doors and walk into the grand square hallway
-Looking ahead you see a door to the left, and a door to the right"""
+Looking in front of you you see a door to the left, and a door to the right"""
 	time.sleep(timer)
 	print "And a small door on the right hand wall..."
 	chosing(start_options, current_count)
@@ -121,7 +121,7 @@ Looking ahead you see a door to the left, and a door to the right"""
 # back to the start
 def mainhall(current_count):
 	scroll_timer(2, long_timer)
-	print "You are back in the main hallway, Looking ahead you see a door to the left, and a door to the right"
+	print "You are back in the main hallway, Looking forward you see a door to the left, and a door to the right"
 	print "And a small open door on the right hand wall..."
 	chosing(start_options, current_count)
 
@@ -136,15 +136,15 @@ You are unsure how it is able to live outside of the ocean.
 Stranger still it speaks to you\n"""
 	time.sleep(timer)
 	print """
-Hello there %s, I have been expecting you.
-I have a few questions for you, get them right and you can live.
-Get them wrong and I'll suck your brains out""" % name[0]
+'Hello there %s, I have been expecting you.
+I have a few questions, get them right and you can live.
+Get them wrong and I'll suck your brains out'""" % name[0]
 	questions(octopus_questions, 2, 'monster_octopus', current_count)
 	time.sleep(timer)
-	print "\nWell done %s, as promised I will let you live and be on your way" %  name[0]
+	print "\n'Well done %s, as promised I will let you live and be on your way'" %  name[0]
 	print "The speaking octopus shows you a door straight ahead and a door to the left."
 	time.sleep(timer)
-	print "Which door do you chose?"
+	print "'Which door do you chose?'"
 	chosing(octopus_options, current_count)
 
 
@@ -186,10 +186,10 @@ def bats(current_count):
 	scroll_timer(2, long_timer)
 	num_bat_guesses = 4
 	print """
-\nWe are the bats that like to poo a-lot!
+\n'We are the bats that like to poo a-lot!
 We will ask you to guess how many of us there are,
 guess correctly within %i guesses and we will let you by,
-guess wrong and we will poo on you.
+guess wrong and we will poo on you'.
 """	% num_bat_guesses
 	bat_number = randint(2, 100)
 	bat_guess = None
@@ -208,7 +208,7 @@ guess wrong and we will poo on you.
 			bat_won = True
 			break
 		print "\nLots of poo falls on you..."
-		print "You are %i bats away from our total\n." % abs(bat_guess - bat_number)
+		print "'You are %i bats away from our total'\n." % abs(bat_guess - bat_number)
 
 	if bat_won != True:
 		print "Out of guesses - Poo'ed to death."
@@ -227,7 +227,7 @@ The dinosaur on the left is a dark green, he looks nasty....and hungry.
 The other, on the right hand side is bright pink."""
 	COLOUR = ('pink', 'green')
 	scroll_timer(1, super_long_timer)
-	print "The %s dinosaur speaks, 'As you've guessed, we have questions.." % random.choice(COLOUR)
+	print "The %s dinosaur speaks, 'As you've guessed, we have questions..'" % random.choice(COLOUR)
 	print "'But first, which one of us would you like to ask the questions? - Pink or Green?'"
 	while True:
 		dino_asker = raw_input("> ").lower()
