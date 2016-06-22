@@ -18,6 +18,54 @@ name = []
 #print "random! %i" % randint(0, 100)
 
 
+#############################################################
+#                    Billy's ASCII 'ART'                    #
+############################################################# 
+
+
+TREASURE_CASTLE = """
+
+       [][][] /""\ [][][]  
+        |::| /____\ |::|
+        |[]|_|::::|_|[]|
+        |::::::__::::::|
+        |:::::/||\:::::|
+        |:#:::||||::#::|
+       #%*###&*##&*&#*&##
+      ##%%*####*%%%###*%*#
+
+"""
+
+OCTOPUS = """
+
+                    .---.         ,,
+         ,,        /     \       ;,,'
+        ;, ;      (  o  o )      ; ;
+          ;,';,,,  \  \/ /      ,; ;
+       ,,,  ;,,,,;;,`   '-,;'''',,,'
+      ;,, ;,, ,,,,   ,;  ,,,'';;,,;''';
+         ;,,,;    ~~'  '';,,''',,;''''  
+                            '''
+
+
+"""
+
+LION = """
+
+
+                @|\@@
+               -  @@@@
+              /7   @@@@
+             /    @@@@@@
+             \-' @@@@@@@@`-_______________
+              -@@@@@@@@@             /     
+         _______/    /_       ______/      |__________-
+        /,__________/  `-.___/,_____________----------_)
+
+
+"""
+
+
 def scroll_timer(num_lines, ticktock):
     for i in range(0, num_lines):
         print "\n"
@@ -106,16 +154,7 @@ def quit(counter):
 
 # the start
 def start(current_count):
-    print("""\
-       [][][] /""\ [][][]  
-        |::| /____\ |::|
-        |[]|_|::::|_|[]|
-        |::::::__::::::|
-        |:::::/||\:::::|
-        |:#:::||||::#::|
-       #%*###&*##&*&#*&##
-      ##%%*####*%%%###*%*#
-                    """)
+    print(TREASURE_CASTLE)
     print """
 Welcome to the treasure castle, %s.
 you have played this game %d times.
@@ -147,15 +186,8 @@ A large Octopus dominates the room.
 You are unsure how it is able to live outside of the ocean.
 Stranger still it speaks to you\n"""
     time.sleep(timer)
+    print (OCTOPUS)
     print """
-                            .---.         ,,
-                 ,,        /     \       ;,,'
-                ;, ;      (  o  o )      ; ;
-                  ;,';,,,  \  \/ /      ,; ;
-               ,,,  ;,,,,;;,`   '-,;'''',,,'
-              ;,, ;,, ,,,,   ,;  ,,,'';;,,;''';
-                 ;,,,;    ~~'  '';,,''',,;''''  
-                                    '''
 Hello there %s, I have been expecting you.
 I have a few questions for you, get them right and you can live.
 Get them wrong and I'll suck your brains out""" % name[0]
@@ -171,20 +203,9 @@ Get them wrong and I'll suck your brains out""" % name[0]
 
 def lion(current_count):
     scroll_timer(2, long_timer)
+    print "You walk into a brightly lit room,\nThere is a huge great lion in this room."
+    print (LION)
     print """
-You walk into a brightly lit room,
-There is a huge great lion in this room.
-
-        @|\@@
-       -  @@@@
-      /7   @@@@
-     /    @@@@@@
-     \-' @@@@@@@@`-_______________
-      -@@@@@@@@@             /     
- _______/    /_       ______/      |__________-
-/,__________/  `-.___/,_____________----------_)
-
-
 'Nice mane!' you exclaim.
 'Thanks', says the lion, adjusting his monocle, 
 'I am a hipster lion, and as this is a text adventure game I have questions.'"""
