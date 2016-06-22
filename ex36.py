@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# Special thanks to Billy.H for the artwork
+
 
 import time
 from sys import exit
