@@ -19,13 +19,13 @@ name = []
 
 
 def scroll_timer(num_lines, ticktock):
-	for i in range(0, num_lines):
-		print "\n"
-		time.sleep(ticktock)
+    for i in range(0, num_lines):
+        print "\n"
+        time.sleep(ticktock)
 
 
 #############################################################
-#					 questions function                     #
+#                    questions function                     #
 ############################################################# 
 """
 this function askes questions from the passed list, number of questions, 
@@ -34,79 +34,79 @@ grabs a random question, asks(key) and checcs against answer (value)
 there was a bug initially, and question could be asked again - so now the asked questionsd is removed from the list
 """
 def questions(question_list, number_questions, monster, current_count):
-	i = 0
-	#print question_list
-	while i < number_questions: 
-		x = random.choice(question_list.keys())
-		quest_ask = raw_input(x + " ").lower()
-		if quest_ask == question_list.get(x):
-			if (i + 1) < number_questions:
-				print "Correct, another question for you.."
-			i += 1
-			del question_list[x]
-			#print question_list
-		else:
-			scroll_timer(3, fast_timer)
-			print monster_dict.get(monster)
-			dead(current_count)
-	return
+    i = 0
+    #print question_list
+    while i < number_questions: 
+        x = random.choice(question_list.keys())
+        quest_ask = raw_input(x + " ").lower()
+        if quest_ask == question_list.get(x):
+            if (i + 1) < number_questions:
+                print "Correct, another question for you.."
+            i += 1
+            del question_list[x]
+            #print question_list
+        else:
+            scroll_timer(3, fast_timer)
+            print monster_dict.get(monster)
+            dead(current_count)
+    return
 
 
 #############################################################
-#					  rooms function                        #
+#                     rooms function                        #
 ############################################################# 
 
 # intro writes to a list with single value (0) 
 def intro(current_count):
-	scroll_timer(32, fast_timer)
-	the_name = raw_input("Your name is? ")
-	name.append(the_name)
-	scroll_timer(2, timer)
-	start(current_count)
-	#complete(current_count)
+    scroll_timer(32, fast_timer)
+    the_name = raw_input("Your name is? ")
+    name.append(the_name)
+    scroll_timer(2, timer)
+    start(current_count)
+    #complete(current_count)
 
 
 def dead(current_count):
-	print "\nDo you wish to play again?"
-	print "Type 'y' or 'n'?"
-	chosing(dead_options, current_count)
+    print "\nDo you wish to play again?"
+    print "Type 'y' or 'n'?"
+    chosing(dead_options, current_count)
 
 
 def final(current_count):
-	print "\nYou finally arrive in the treasure room,"
-	time.sleep(timer)
-	print "It is brightly lit with flaming torches."
-	time.sleep(timer)
-	print "In the middle of the room stands the treasure chest."
-	chosing(chest_options, current_count)
+    print "\nYou finally arrive in the treasure room,"
+    time.sleep(timer)
+    print "It is brightly lit with flaming torches."
+    time.sleep(timer)
+    print "In the middle of the room stands the treasure chest."
+    chosing(chest_options, current_count)
 
 
 def complete(current_count):
-	n = random.randint(1,2)
-	if n == 1:
-		print "You open the chest, revealing riches beyond you wildest dreams..."
-		time.sleep(super_long_timer)
-		print "...and a " + u"\u00a3" + "1 scratch card."
-	else:
-		print "You open the chest, an adventurer has already beaten you to it, all that is left is..."
-		time.sleep(super_long_timer)
-		print "...a graze box voucher."
-	time.sleep(long_timer)
-	print "\nWell done %s, you have completed the game." % name[0]
-	dead(current_count)
+    n = random.randint(1,2)
+    if n == 1:
+        print "You open the chest, revealing riches beyond you wildest dreams..."
+        time.sleep(super_long_timer)
+        print "...and a " + u"\u00a3" + "1 scratch card."
+    else:
+        print "You open the chest, an adventurer has already beaten you to it, all that is left is..."
+        time.sleep(super_long_timer)
+        print "...a graze box voucher."
+    time.sleep(long_timer)
+    print "\nWell done %s, you have completed the game." % name[0]
+    dead(current_count)
 
 def quit(counter):
-	if counter < 2:
-		print "You only played the game %d time." % counter
-	else:
-		print "You played the game %d times." % counter
-	print "Bye"
-	exit(0)
+    if counter < 2:
+        print "You only played the game %d time." % counter
+    else:
+        print "You played the game %d times." % counter
+    print "Bye"
+    exit(0)
 
 
 # the start
 def start(current_count):
-	print("""\
+    print("""\
        [][][] /""\ [][][]  
         |::| /____\ |::|
         |[]|_|::::|_|[]|
@@ -116,39 +116,39 @@ def start(current_count):
        #%*###&*##&*&#*&##
       ##%%*####*%%%###*%*#
                     """)
-	print """
+    print """
 Welcome to the treasure castle, %s.
 you have played this game %d times.
 You look around and see a large castle with big double oak doors...""" % (name[0], current_count)
-	current_count += 1
-	time.sleep(timer)
-	print """
+    current_count += 1
+    time.sleep(timer)
+    print """
 You open the doors and walk into the grand square hallway
 Looking in front of you you see a door to the left, and a door to the right"""
-	time.sleep(timer)
-	print "And a small door on the right hand wall..."
-	chosing(start_options, current_count)
+    time.sleep(timer)
+    print "And a small door on the right hand wall..."
+    chosing(start_options, current_count)
 
 
 # back to the start
 def mainhall(current_count):
-	scroll_timer(2, long_timer)
-	print "You are back in the main hallway, Looking forward you see a door to the left, and a door to the right"
-	print "And a small open door on the right hand wall..."
-	chosing(start_options, current_count)
+    scroll_timer(2, long_timer)
+    print "You are back in the main hallway, Looking forward you see a door to the left, and a door to the right"
+    print "And a small open door on the right hand wall..."
+    chosing(start_options, current_count)
 
 
 # octopus room, uses the questions() function
 def octopus(current_count):
-	scroll_timer(2, long_timer)
-	print """
+    scroll_timer(2, long_timer)
+    print """
 You step into the room, the door slams shut behind you.
 A large Octopus dominates the room.
 You are unsure how it is able to live outside of the ocean.
 Stranger still it speaks to you\n"""
-	time.sleep(timer)
-	print """
-	                    .---.         ,,
+    time.sleep(timer)
+    print """
+                            .---.         ,,
                  ,,        /     \       ;,,'
                 ;, ;      (  o  o )      ; ;
                   ;,';,,,  \  \/ /      ,; ;
@@ -160,18 +160,18 @@ Hello there %s, I have been expecting you.
 I have a few questions for you, get them right and you can live.
 Get them wrong and I'll suck your brains out""" % name[0]
 
-	questions(octopus_questions, 2, 'monster_octopus', current_count)
-	time.sleep(timer)
-	print "\n'Well done %s, as promised I will let you live and be on your way'" %  name[0]
-	print "The speaking octopus shows you a door straight ahead and a door to the left."
-	time.sleep(timer)
-	print "'Which door do you chose?'"
-	chosing(octopus_options, current_count)
+    questions(octopus_questions, 2, 'monster_octopus', current_count)
+    time.sleep(timer)
+    print "\n'Well done %s, as promised I will let you live and be on your way'" %  name[0]
+    print "The speaking octopus shows you a door straight ahead and a door to the left."
+    time.sleep(timer)
+    print "'Which door do you chose?'"
+    chosing(octopus_options, current_count)
 
 
 def lion(current_count):
-	scroll_timer(2, long_timer)
-	print """
+    scroll_timer(2, long_timer)
+    print """
 You walk into a brightly lit room,
 There is a huge great lion in this room.
 
@@ -188,105 +188,105 @@ There is a huge great lion in this room.
 'Nice mane!' you exclaim.
 'Thanks', says the lion, adjusting his monocle, 
 'I am a hipster lion, and as this is a text adventure game I have questions.'"""
-	questions(lion_questions, 2, 'monster_lion', current_count)
-	print "'You may pass' speaks the lion, tipping his fedora."
-	print "You must go straight through the door behind me."
-	time.sleep(timer)
-	print "\nYou follow his instructions"
-	time.sleep(timer)
-	skeleton(current_count)
+    questions(lion_questions, 2, 'monster_lion', current_count)
+    print "'You may pass' speaks the lion, tipping his fedora."
+    print "You must go straight through the door behind me."
+    time.sleep(timer)
+    print "\nYou follow his instructions"
+    time.sleep(timer)
+    skeleton(current_count)
 
 # pit room, hidden trap door (random number)
 def pit(current_count):
-	scroll_timer(2, long_timer)
-	dice_roll = randint(0, 100)
-	print "Pit Room"
-	if dice_roll > 75:
-		print """
+    scroll_timer(2, long_timer)
+    dice_roll = randint(0, 100)
+    print "Pit Room"
+    if dice_roll > 75:
+        print """
 \nPhew, you walked into the room and just miss stepping
 onto a trap door, it falls open revealing a bottomless pit."""
-		chosing(pit_options, current_count)
-	else:
-		print """
+        chosing(pit_options, current_count)
+    else:
+        print """
 \nYou walk into the room, 'CLICK!!' stepping onto a trap door
 The last thing you are aware of is the long time it takes to hit the bottom...."""
-		print "(You are dead)"
-		dead(current_count)
+        print "(You are dead)"
+        dead(current_count)
 
 
 def bats(current_count):
-	scroll_timer(2, long_timer)
-	num_bat_guesses = 4
-	print """
+    scroll_timer(2, long_timer)
+    num_bat_guesses = 4
+    print """
 \n'We are the bats that like to poo a-lot!
 We will ask you to guess how many of us there are,
 guess correctly within %i guesses and we will let you by,
 guess wrong and we will poo on you'.
-"""	% num_bat_guesses
-	bat_number = randint(2, 100)
-	bat_guess = None
-	bat_won = False
-	# error handling, while true = infinate loop (break will exit)
-	# check (try) if it is a number, break if is a number
-	for counter in range(0, num_bat_guesses): # number of guesses allowed
-		while True:
-			try:
-				bat_guess = raw_input("Guess away: ")
-				bat_guess = int(bat_guess)
-				break
-			except ValueError:
-				print "The bats squeak together 'Don't be silly, that isn't a number!'"
-		if bat_guess == bat_number:
-			bat_won = True
-			break
-		print "\nLots of poo falls on you..."
-		print "'You are %i bats away from our total'\n." % abs(bat_guess - bat_number)
+""" % num_bat_guesses
+    bat_number = randint(2, 100)
+    bat_guess = None
+    bat_won = False
+    # error handling, while true = infinate loop (break will exit)
+    # check (try) if it is a number, break if is a number
+    for counter in range(0, num_bat_guesses): # number of guesses allowed
+        while True:
+            try:
+                bat_guess = raw_input("Guess away: ")
+                bat_guess = int(bat_guess)
+                break
+            except ValueError:
+                print "The bats squeak together 'Don't be silly, that isn't a number!'"
+        if bat_guess == bat_number:
+            bat_won = True
+            break
+        print "\nLots of poo falls on you..."
+        print "'You are %i bats away from our total'\n." % abs(bat_guess - bat_number)
 
-	if bat_won != True:
-		print "Out of guesses - Poo'ed to death."
-		dead(current_count)
-	else:
-		chosing(bat_options, current_count)
+    if bat_won != True:
+        print "Out of guesses - Poo'ed to death."
+        dead(current_count)
+    else:
+        chosing(bat_options, current_count)
 
 
 def dinosaur(current_count):
-	print "\nYou walk into a dark room, the door closes behind you with a gentle click."
-	scroll_timer(2, long_timer)
-	print """
+    print "\nYou walk into a dark room, the door closes behind you with a gentle click."
+    scroll_timer(2, long_timer)
+    print """
 Torches light up. Two huge dinosaurs are somehow crammed into the modest hall.
 The place seems to bend the laws of physics - like a child dreamt up this scenario.
 The dinosaur on the left is a dark green, he looks nasty....and hungry.
 The other, on the right hand side is bright pink."""
-	COLOUR = ('pink', 'green')
-	scroll_timer(1, super_long_timer)
-	print "The %s dinosaur speaks, 'As you've guessed, we have questions..'" % random.choice(COLOUR)
-	print "'But first, which one of us would you like to ask the questions? - Pink or Green?'"
-	while True:
-		dino_asker = raw_input("> ").lower()
-		if dino_asker == 'pink' or dino_asker == 'green':
-			if dino_asker == 'pink':
-				print "'Hello', says the pink dinosaur."
-				questions(pink_dinosaur_questions, 2, 'monster_dino_pink', current_count)
-			else:
-				print "'Hello', says the green dinosaur."
-				questions(green_dinosaur_questions, 4, 'monster_dino_green', current_count)
-			scroll_timer(4, fast_timer)
-			print "\n'Well done, you may pass' says the %s dinosaur." % dino_asker
-			print "The dinosaurs show you the only exit, which was hidden behind the %s dinosaur." % dino_asker
-			final(current_count)
-			return
-		else:
-			print "Pink Dinosaur, or Green Dinosaur?"
-	#one is green, the other bright pink
+    COLOUR = ('pink', 'green')
+    scroll_timer(1, super_long_timer)
+    print "The %s dinosaur speaks, 'As you've guessed, we have questions..'" % random.choice(COLOUR)
+    print "'But first, which one of us would you like to ask the questions? - Pink or Green?'"
+    while True:
+        dino_asker = raw_input("> ").lower()
+        if dino_asker == 'pink' or dino_asker == 'green':
+            if dino_asker == 'pink':
+                print "'Hello', says the pink dinosaur."
+                questions(pink_dinosaur_questions, 2, 'monster_dino_pink', current_count)
+            else:
+                print "'Hello', says the green dinosaur."
+                questions(green_dinosaur_questions, 4, 'monster_dino_green', current_count)
+            scroll_timer(4, fast_timer)
+            print "\n'Well done, you may pass' says the %s dinosaur." % dino_asker
+            print "The dinosaurs show you the only exit, which was hidden behind the %s dinosaur." % dino_asker
+            final(current_count)
+            return
+        else:
+            print "Pink Dinosaur, or Green Dinosaur?"
+    #one is green, the other bright pink
 
 # would like a list, if you die, you get added to list 
 def skeleton(current_count):
-	skel_picked = False
-	# some_list[start:stop:step]
-	good_list = skeleton_list[1::2]
-	bad_list = skeleton_list[0::2]
-	scroll_timer(2, long_timer)
-	print """
+    skel_picked = False
+    # some_list[start:stop:step]
+    good_list = skeleton_list[1::2]
+    bad_list = skeleton_list[0::2]
+    scroll_timer(2, long_timer)
+    print """
 You emerge into a dank cold dungeon.
 You are aware you are not alone.
 Four undead join you in the dungeon.
@@ -295,45 +295,45 @@ Well, %i colourful skeletons to be exact.
 # insert skeleton here
 
 \n(Press enter to continue)""" % len(skeleton_list)
-	raw_input(">")
-	#print "good: %r" % good_list
-	#print "bad: %r" % bad_list
-	print "Which of us is good, which of is bad?"
-	scroll_timer(1, timer)
-	print "The only clue you have is our colours: "
-	time.sleep(timer)
-	for colour in skeleton_list:
-		print colour + " skeleton"
+    raw_input(">")
+    #print "good: %r" % good_list
+    #print "bad: %r" % bad_list
+    print "Which of us is good, which of is bad?"
+    scroll_timer(1, timer)
+    print "The only clue you have is our colours: "
+    time.sleep(timer)
+    for colour in skeleton_list:
+        print colour + " skeleton"
 
-	while skel_picked != True:
-		skel_choice = raw_input("Pick one of us..").lower()
-		if skel_choice in good_list:
-			print "You picked well."
-			skel_picked = True
-			print"The skeletons kindly show you the exit."
-			final(current_count)
-		else:
-			if skel_choice in bad_list:
-				print "You made a poor choice."
-				scroll_timer(1, long_timer)
-				print "The skeletons surround you and rip your skin off. You are one of them now."
-				skeleton_list.append(other_skel_colours.pop(0))
-				scroll_timer(2, long_timer)
-				dead(current_count)
-			else:
-				print "You picked none of us."
-	return
-	print "This is the escape"
-	# pass
+    while skel_picked != True:
+        skel_choice = raw_input("Pick one of us..").lower()
+        if skel_choice in good_list:
+            print "You picked well."
+            skel_picked = True
+            print"The skeletons kindly show you the exit."
+            final(current_count)
+        else:
+            if skel_choice in bad_list:
+                print "You made a poor choice."
+                scroll_timer(1, long_timer)
+                print "The skeletons surround you and rip your skin off. You are one of them now."
+                skeleton_list.append(other_skel_colours.pop(0))
+                scroll_timer(2, long_timer)
+                dead(current_count)
+            else:
+                print "You picked none of us."
+    return
+    print "This is the escape"
+    # pass
 
 
 
 
 
 def generic(current_count):
-	print "Placeholder."
-	print "played %d times." % current_count
-	# pass
+    print "Placeholder."
+    print "played %d times." % current_count
+    # pass
 
 # these are all the rooms
 start_options = {'left': octopus, 'right': lion, 'small': pit, 'small door': pit, 'quit': quit}
@@ -365,29 +365,29 @@ other_skel_colours = ['pink', 'brown', 'white', 'purple' ]
 
 
 #############################################################
-#					Main option choosing                    #
+#                   Main option choosing                    #
 ############################################################# 
 
 def chosing(dictionary, current_count):
 
-	while done !=True:
-		choice = raw_input("\nWhat do you want to do? ").lower()
-		if choice in dictionary:
-			print "\nYou chose " + choice
-			dictionary[choice](current_count)
-			done == True
-		else:
-			print "Sorry, you can't do '%s'.\n" % choice
-			last_item = len(dictionary)
-			j = 0
-			print "Try: "
-			for i in dictionary:
-				j += 1
-				time.sleep(0.35)
-				if j != last_item:
-					print i + " or.."
-				else:
-					print i+".\n"
+    while done !=True:
+        choice = raw_input("\nWhat do you want to do? ").lower()
+        if choice in dictionary:
+            print "\nYou chose " + choice
+            dictionary[choice](current_count)
+            done == True
+        else:
+            print "Sorry, you can't do '%s'.\n" % choice
+            last_item = len(dictionary)
+            j = 0
+            print "Try: "
+            for i in dictionary:
+                j += 1
+                time.sleep(0.35)
+                if j != last_item:
+                    print i + " or.."
+                else:
+                    print i+".\n"
 
 
 
