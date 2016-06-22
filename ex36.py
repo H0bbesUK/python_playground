@@ -104,6 +104,16 @@ def quit(counter):
 
 # the start
 def start(current_count):
+	print("""\
+       [][][] /""\ [][][]  
+        |::| /____\ |::|
+        |[]|_|::::|_|[]|
+        |::::::__::::::|
+        |:::::/||\:::::|
+        |:#:::||||::#::|
+       #%*###&*##&*&#*&##
+      ##%%*####*%%%###*%*#
+                    """)
 	print """
 Welcome to the treasure castle, %s.
 you have played this game %d times.
@@ -136,9 +146,18 @@ You are unsure how it is able to live outside of the ocean.
 Stranger still it speaks to you\n"""
 	time.sleep(timer)
 	print """
-'Hello there %s, I have been expecting you.
-I have a few questions, get them right and you can live.
-Get them wrong and I'll suck your brains out'""" % name[0]
+	                    .---.         ,,
+                 ,,        /     \       ;,,'
+                ;, ;      (  o  o )      ; ;
+                  ;,';,,,  \  \/ /      ,; ;
+               ,,,  ;,,,,;;,`   '-,;'''',,,'
+              ;,, ;,, ,,,,   ,;  ,,,'';;,,;''';
+                 ;,,,;    ~~'  '';,,''',,;''''  
+                                    '''
+Hello there %s, I have been expecting you.
+I have a few questions for you, get them right and you can live.
+Get them wrong and I'll suck your brains out""" % name[0]
+
 	questions(octopus_questions, 2, 'monster_octopus', current_count)
 	time.sleep(timer)
 	print "\n'Well done %s, as promised I will let you live and be on your way'" %  name[0]
