@@ -15,7 +15,12 @@ endgame = False
 current_count = 0
 done = False
 name = []
-#print "random! %i" % randint(0, 100)
+
+
+def scroll_timer(num_lines, ticktock):
+    for i in range(0, num_lines):
+        print "\n"
+        time.sleep(ticktock)
 
 
 #############################################################
@@ -47,7 +52,6 @@ OCTOPUS = """
          ;,,,;    ~~'  '';,,''',,;''''  
                             '''
 
-
 """
 
 LION = """
@@ -65,40 +69,26 @@ LION = """
 
 """
 
+SKELETON = """
 
-def scroll_timer(num_lines, ticktock):
-    for i in range(0, num_lines):
-        print "\n"
-        time.sleep(ticktock)
+        ▒▒▒░░░░░░░░░░▄▐░░░░
+        ▒░░░░░░▄▄▄░░▄██▄░░░
+        ░░░░░░▐▀█▀▌░░░░▀█▄░
+        ░░░░░░▐█▄█▌░░░░░░▀█▄
+        ░░░░░░░▀▄▀░░░▄▄▄▄▄▀▀
+        ░░░░░▄▄▄██▀▀▀▀░░░░░
+        ░░░░█▀▄▄▄█░▀▀░░░░░░
+        ░░░░▌░▄▄▄▐▌▀▀▀░░░░░
+        ░▄░▐░░░▄▄░█░▀▀░░░░░
+        ░▀█▌░░░▄░▀█▀░▀░░░░░
+        ░░░░░░░░▄▄▐▌▄▄░░░░░
+        ░░░░░░░░▀███▀█░▄░░░
+        ░░░░░░░▐▌▀▄▀▄▀▐▄░░░
+        ░░░░░░░▐▀░░░░░░▐▌░░
+        ░░░░░░░█░░░░░░░░█░░
+        ░░░░░░▐▌░░░░░░░░░█░ 
 
-
-#############################################################
-#                    questions function                     #
-############################################################# 
 """
-this function askes questions from the passed list, number of questions, 
-the monster_dict (for death) and times played
-grabs a random question, asks(key) and checcs against answer (value)
-there was a bug initially, and question could be asked again - so now the asked questionsd is removed from the list
-"""
-def questions(question_list, number_questions, monster, current_count):
-    i = 0
-    #print question_list
-    while i < number_questions: 
-        x = random.choice(question_list.keys())
-        quest_ask = raw_input(x + " ").lower()
-        if quest_ask == question_list.get(x):
-            if (i + 1) < number_questions:
-                print "Correct, another question for you.."
-            i += 1
-            del question_list[x]
-            #print question_list
-        else:
-            scroll_timer(3, fast_timer)
-            print monster_dict.get(monster)
-            dead(current_count)
-    return
-
 
 #############################################################
 #                     rooms function                        #
@@ -307,29 +297,12 @@ def skeleton(current_count):
     good_list = skeleton_list[1::2]
     bad_list = skeleton_list[0::2]
     scroll_timer(2, long_timer)
+    print (SKELETON)
     print """
 You emerge into a dank cold dungeon.
 You are aware you are not alone.
 Four undead join you in the dungeon.
 Well, %i colourful skeletons to be exact.
-
-        ▒▒▒░░░░░░░░░░▄▐░░░░
-        ▒░░░░░░▄▄▄░░▄██▄░░░
-        ░░░░░░▐▀█▀▌░░░░▀█▄░
-        ░░░░░░▐█▄█▌░░░░░░▀█▄
-        ░░░░░░░▀▄▀░░░▄▄▄▄▄▀▀
-        ░░░░░▄▄▄██▀▀▀▀░░░░░
-        ░░░░█▀▄▄▄█░▀▀░░░░░░
-        ░░░░▌░▄▄▄▐▌▀▀▀░░░░░
-        ░▄░▐░░░▄▄░█░▀▀░░░░░
-        ░▀█▌░░░▄░▀█▀░▀░░░░░
-        ░░░░░░░░▄▄▐▌▄▄░░░░░
-        ░░░░░░░░▀███▀█░▄░░░
-        ░░░░░░░▐▌▀▄▀▄▀▐▄░░░
-        ░░░░░░░▐▀░░░░░░▐▌░░
-        ░░░░░░░█░░░░░░░░█░░
-        ░░░░░░▐▌░░░░░░░░░█░ 
-
 \n(Press enter to continue)""" % len(skeleton_list)
     raw_input(">")
     #print "good: %r" % good_list
@@ -363,9 +336,6 @@ Well, %i colourful skeletons to be exact.
     # pass
 
 
-
-
-
 def generic(current_count):
     print "Placeholder."
     print "played %d times." % current_count
@@ -390,12 +360,14 @@ green_dinosaur_questions = {'What is 7 + 5?': '12', 'What is 3 + 12?': '15', 'Wh
 pink_dinosaur_questions = {'What is 10 - 5?': '5', 'What is 12 - 3?': '9', 'What is 7 - 4?': '3', 'What is 14 - 5?': '9' }
 lion_questions = {'What is 20 - 10?': '10', 'What is 20 + 5?': '25', 'As well as sunlight, what do plants need to grow?': 'water',
 'What is the opposite of left?': 'right', 'Which animals live in the sea?': 'fish', 'What animals fly in the sky?': 'birds' }
+
 # these are the ways of death
 monster_dict = {'monster_octopus': 'SLURP!! The octopus delivers on his promise and sucks your brains out!', 
 'monster_dino_green': 'CRUNCH!! The green dinosaur gobbles you head off!', 
 'monster_dino_pink': 'MUNCH!! The pink dinosaur swallows you up!',
 'monster_lion': 'ROAR!! The lion rips you to bits!'}
 
+# skeleton lists
 skeleton_list = ['green', 'red', 'yellow', 'black']
 other_skel_colours = ['pink', 'brown', 'white', 'purple' ]
 
@@ -425,6 +397,34 @@ def chosing(dictionary, current_count):
                 else:
                     print i+".\n"
 
+
+
+#############################################################
+#                    questions function                     #
+############################################################# 
+"""
+this function askes questions from the passed list, number of questions, 
+the monster_dict (for death) and times played
+grabs a random question, asks(key) and checcs against answer (value)
+there was a bug initially, and question could be asked again - so now the asked questionsd is removed from the list
+"""
+def questions(question_list, number_questions, monster, current_count):
+    i = 0
+    #print question_list
+    while i < number_questions: 
+        x = random.choice(question_list.keys())
+        quest_ask = raw_input(x + " ").lower()
+        if quest_ask == question_list.get(x):
+            if (i + 1) < number_questions:
+                print "Correct, another question for you.."
+            i += 1
+            del question_list[x]
+            #print question_list
+        else:
+            scroll_timer(3, fast_timer)
+            print monster_dict.get(monster)
+            dead(current_count)
+    return
 
 
 
