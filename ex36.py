@@ -174,6 +174,17 @@ def lion(current_count):
 	print """
 You walk into a brightly lit room,
 There is a huge great lion in this room.
+
+        @|\@@
+       -  @@@@
+      /7   @@@@
+     /    @@@@@@
+     \-' @@@@@@@@`-_______________
+      -@@@@@@@@@             /     
+ _______/    /_       ______/      |__________-
+/,__________/  `-.___/,_____________----------_)
+
+
 'Nice mane!' you exclaim.
 'Thanks', says the lion, adjusting his monocle, 
 'I am a hipster lion, and as this is a text adventure game I have questions.'"""
