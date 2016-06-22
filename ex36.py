@@ -146,6 +146,16 @@ You are unsure how it is able to live outside of the ocean.
 Stranger still it speaks to you\n"""
 	time.sleep(timer)
 	print """
+	                    .---.         ,,
+                 ,,        /     \       ;,,'
+                ;, ;      (  o  o )      ; ;
+                  ;,';,,,  \  \/ /      ,; ;
+               ,,,  ;,,,,;;,`   '-,;'''',,,'
+              ;,, ;,, ,,,,   ,;  ,,,'';;,,;''';
+                 ;,,,;    ~~'  '';,,''',,;''''  
+                                    '''
+	"""
+	print """
 Hello there %s, I have been expecting you.
 I have a few questions for you, get them right and you can live.
 Get them wrong and I'll suck your brains out""" % name[0]
