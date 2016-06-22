@@ -15,7 +15,7 @@ endgame = False
 current_count = 0
 done = False
 name = []
-
+COLOUR = ('pink', 'green')
 
 def scroll_timer(num_lines, ticktock):
     for i in range(0, num_lines):
@@ -130,14 +130,14 @@ def complete(current_count):
         time.sleep(super_long_timer)
         print "...a graze box voucher."
     time.sleep(long_timer)
-    print "\nWell done %s, you have completed the game." % name[0]
+    print "\nWell done {your_name}, you have completed the game.".format(your_name = name[0])
     dead(current_count)
 
 def quit(counter):
-    if counter < 2:
-        print "You only played the game %d time." % counter
+    if counter == 1:
+        print "You only played the game {0} time.".format(counter)
     else:
-        print "You played the game %d times." % counter
+        print "You played the game {0} times.".format(counter)
     print "Bye"
     exit(0)
 
@@ -146,9 +146,9 @@ def quit(counter):
 def start(current_count):
     print(TREASURE_CASTLE)
     print """
-Welcome to the treasure castle, %s.
-you have played this game %d times.
-You look around and see a large castle with big double oak doors...""" % (name[0], current_count)
+Welcome to the treasure castle, {0}.
+You have played this game {1} times.
+You look around and see a large castle with big double oak doors...""".format(name[0], current_count)
     current_count += 1
     time.sleep(timer)
     print """
@@ -178,16 +178,16 @@ Stranger still it speaks to you\n"""
     time.sleep(timer)
     print (OCTOPUS)
     print """
-Hello there %s, I have been expecting you.
+Hello there {your_name}, I have been expecting you.
 I have a few questions for you, get them right and you can live.
-Get them wrong and I'll suck your brains out""" % name[0]
+Get them wrong and I'll suck your brains out""".format(your_name = name[0])
 
     questions(octopus_questions, 2, 'monster_octopus', current_count)
     time.sleep(timer)
-    print "\n'Well done %s, as promised I will let you live and be on your way'" %  name[0]
+    print "\n'Well done {your_name}, as promised I will let you live and be on your way'".format(your_name = name[0])
     print "The speaking octopus shows you a door straight ahead and a door to the left."
     time.sleep(timer)
-    print "'Which door do you chose?'"
+    print "'Which door do you choose?'"
     chosing(octopus_options, current_count)
 
 
@@ -231,9 +231,9 @@ def bats(current_count):
     print """
 \n'We are the bats that like to poo a-lot!
 We will ask you to guess how many of us there are,
-guess correctly within %i guesses and we will let you by,
+guess correctly within {var_guess} guesses and we will let you by,
 guess wrong and we will poo on you'.
-""" % num_bat_guesses
+""".format(var_guess = num_bat_guesses)
     bat_number = randint(2, 100)
     bat_guess = None
     bat_won = False
@@ -251,12 +251,17 @@ guess wrong and we will poo on you'.
             bat_won = True
             break
         print "\nLots of poo falls on you..."
-        print "'You are %i bats away from our total'\n." % abs(bat_guess - bat_number)
-
+        print "'You are {num_away} bats away from our total.'".format(num_away = abs(bat_guess - bat_number))
+        if num_bat_guesses - (counter + 1) > 1:
+            print "You have {bat_guess} guesses left.\n".format(bat_guess = num_bat_guesses - (counter + 1))
+        else:
+            print "You have 1 guess left.\n"
     if bat_won != True:
         print "Out of guesses - Poo'ed to death."
         dead(current_count)
     else:
+        print "The bats squeak with delight 'Well done, you guessed correctly."
+        print "'You can now make your way ahead, or pointlessly quit.'"
         chosing(bat_options, current_count)
 
 
@@ -268,9 +273,8 @@ Torches light up. Two huge dinosaurs are somehow crammed into the modest hall.
 The place seems to bend the laws of physics - like a child dreamt up this scenario.
 The dinosaur on the left is a dark green, he looks nasty....and hungry.
 The other, on the right hand side is bright pink."""
-    COLOUR = ('pink', 'green')
     scroll_timer(1, super_long_timer)
-    print "The %s dinosaur speaks, 'As you've guessed, we have questions..'" % random.choice(COLOUR)
+    print "The {colour_of_dino} dinosaur speaks, 'As you've guessed, we have questions..'".format(colour_of_dino = random.choice(COLOUR))
     print "'But first, which one of us would you like to ask the questions? - Pink or Green?'"
     while True:
         dino_asker = raw_input("> ").lower()
@@ -282,8 +286,8 @@ The other, on the right hand side is bright pink."""
                 print "'Hello', says the green dinosaur."
                 questions(green_dinosaur_questions, 4, 'monster_dino_green', current_count)
             scroll_timer(4, fast_timer)
-            print "\n'Well done, you may pass' says the %s dinosaur." % dino_asker
-            print "The dinosaurs show you the only exit, which was hidden behind the %s dinosaur." % dino_asker
+            print "\n'Well done, you may pass' says the {rand_colour} dinosaur.".format(rand_colour = dino_asker)
+            print "The dinosaurs show you the only exit, which was hidden behind the {rand_colour} dinosaur.".format(rand_colour = dino_asker)
             final(current_count)
             return
         else:
@@ -302,8 +306,8 @@ def skeleton(current_count):
 You emerge into a dank cold dungeon.
 You are aware you are not alone.
 Four undead join you in the dungeon.
-Well, %i colourful skeletons to be exact.
-\n(Press enter to continue)""" % len(skeleton_list)
+Well, {number_of_skel} colourful skeletons to be exact.
+\n(Press enter to continue)""".format(number_of_skel = len(skeleton_list))
     raw_input(">")
     #print "good: %r" % good_list
     #print "bad: %r" % bad_list
