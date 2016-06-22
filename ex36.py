@@ -291,6 +291,9 @@ You emerge into a dank cold dungeon.
 You are aware you are not alone.
 Four undead join you in the dungeon.
 Well, %i colourful skeletons to be exact.
+
+# insert skeleton here
+
 \n(Press enter to continue)""" % len(skeleton_list)
 	raw_input(">")
 	#print "good: %r" % good_list
