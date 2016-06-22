@@ -104,6 +104,16 @@ def quit(counter):
 
 # the start
 def start(current_count):
+	print("""\
+       [][][] /""\ [][][]  
+        |::| /____\ |::|
+        |[]|_|::::|_|[]|
+        |::::::__::::::|
+        |:::::/||\:::::|
+        |:#:::||||::#::|
+       #%*###&*##&*&#*&##
+      ##%%*####*%%%###*%*#
+                    """)
 	print """
 Welcome to the treasure castle, %s.
 you have played this game %d times.
@@ -135,6 +145,16 @@ A large Octopus dominates the room.
 You are unsure how it is able to live outside of the ocean.
 Stranger still it speaks to you\n"""
 	time.sleep(timer)
+	print """
+	                    .---.         ,,
+                 ,,        /     \       ;,,'
+                ;, ;      (  o  o )      ; ;
+                  ;,';,,,  \  \/ /      ,; ;
+               ,,,  ;,,,,;;,`   '-,;'''',,,'
+              ;,, ;,, ,,,,   ,;  ,,,'';;,,;''';
+                 ;,,,;    ~~'  '';,,''',,;''''  
+                                    '''
+	"""
 	print """
 Hello there %s, I have been expecting you.
 I have a few questions for you, get them right and you can live.
