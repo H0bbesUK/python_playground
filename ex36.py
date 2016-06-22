@@ -104,6 +104,16 @@ def quit(counter):
 
 # the start
 def start(current_count):
+	print("""\
+       [][][] /""\ [][][]  
+        |::| /____\ |::|
+        |[]|_|::::|_|[]|
+        |::::::__::::::|
+        |:::::/||\:::::|
+        |:#:::||||::#::|
+       #%*###&*##&*&#*&##
+      ##%%*####*%%%###*%*#
+                    """)
 	print """
 Welcome to the treasure castle, %s.
 you have played this game %d times.
