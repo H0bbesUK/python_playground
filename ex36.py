@@ -318,10 +318,13 @@ def skeleton(current_count):
     # some_list[start:stop:step]
     good_list = skeleton_list[1::2]
     bad_list = skeleton_list[0::2]
-    scroll_timer(2, long_timer)
+    scroll_timer(2, timer)
     print ('\033[32m' + SKELETON)
+    scroll_timer(3, timer)
     print ('\033[31m' + SKELETON)
+    scroll_timer(3, timer)
     print ('\033[33m' + SKELETON)
+    scroll_timer(3, timer)
     print ('\033[30m' + SKELETON)
     print ('\033[39m')
     print """
