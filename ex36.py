@@ -319,7 +319,11 @@ def skeleton(current_count):
     good_list = skeleton_list[1::2]
     bad_list = skeleton_list[0::2]
     scroll_timer(2, long_timer)
-    print (SKELETON)
+    print ('\033[32m' + SKELETON)
+    print ('\033[31m' + SKELETON)
+    print ('\033[33m' + SKELETON)
+    print ('\033[30m' + SKELETON)
+    print ('\033[39m')
     print """
 You emerge into a dank cold dungeon.
 You are aware you are not alone.
