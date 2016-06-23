@@ -90,6 +90,23 @@ SKELETON = """
 
 """
 
+BAT = """
+
+   ._.                  _.____.
+     ) \.              /    .(
+     )  |            .'   .(
+     ). ).          .'  .(
+       ) |.        .'  (
+       ). ;      ./  .(
+        ) |      )  (
+        ).;      :.(
+         )|    .|.;
+         .^--^./ (.
+         ;0..0;     )
+          'vv'_.:_.;     
+               m  M
+"""
+
 #############################################################
 #                     rooms function                        #
 ############################################################# 
@@ -228,6 +245,7 @@ The last thing you are aware of is the long time it takes to hit the bottom...."
 def bats(current_count):
     scroll_timer(2, long_timer)
     num_bat_guesses = 4
+    print (BAT)
     print """
 \n'We are the bats that like to poo a-lot!
 We will ask you to guess how many of us there are,
