@@ -107,6 +107,27 @@ BAT = """
                m  M
 """
 
+CHEST = """
+
+            ____...------------...____
+       _.-"` /o/__ ____ __ __  __ \o\_`"-._
+     .'     / /                    \ \     '.
+     |=====/o/======================\o\=====|
+     |____/_/________..____..________\_\____|
+     /   _/ \_     <_o#\__/#o_>     _/ \_   \ 
+     \________________\####/________________/
+      |===\!/========================\!/===|
+      |   |=|          .---.         |=|   |
+      |===|o|=========/     \========|o|===|
+      |   | |         \() ()/        | |   |
+      |===|o|======{'-.) A (.-'}=====|o|===|
+      | __/ \__     '-.\uuu/.-'    __/ \__ |
+      |============= .'.'^'.'.=============|
+      |  _\o/   __  {.' __  '.} _   _\o/  _|
+      `''''-''''''''''''''''''''''''''-''''`
+
+"""
+
 #############################################################
 #                     rooms function                        #
 ############################################################# 
@@ -117,8 +138,8 @@ def intro(current_count):
     the_name = raw_input("Your name is? ")
     name.append(the_name)
     scroll_timer(2, timer)
-    start(current_count)
-    #complete(current_count)
+    #start(current_count)
+    final(current_count)
 
 
 def dead(current_count):
@@ -132,7 +153,8 @@ def final(current_count):
     time.sleep(timer)
     print "It is brightly lit with flaming torches."
     time.sleep(timer)
-    print "In the middle of the room stands the treasure chest."
+    print "In the middle of the room stands the treasure chest.\n\n"
+    print CHEST
     chosing(chest_options, current_count)
 
 
