@@ -15,11 +15,10 @@ happy_bday = Song(["Happy birthday to you",
 bulls_on_parade = Song(["They rally around tha family",
                         "With pockets full of shells"])
 
-jake_bugg = (["I go back to Clifton to see my old friends", 
+jake_bugg = ["I go back to Clifton to see my old friends", 
                     "The best people I could ever have met",
                     "Skin up a fat one, hide from the Feds", 
-                    "Something is changing, changing, changing"])
-
+                    "Something is changing, changing, changing"]
 
 
 happy_bday.sing_me_a_song()
