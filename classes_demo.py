@@ -27,7 +27,7 @@ def details(veh_type, count):
     transport = "transport" + str(count)
     if veh_type == "car":
         print transport
-        transport = Vehicle(colour, model)
+        transport = Car(colour, model)
 
 
 def select_veh(count):
