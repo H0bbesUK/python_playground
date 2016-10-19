@@ -1,19 +1,38 @@
+object_dict = {1: 'transport1', 2: 'transport2', 3: 'transport3', }
 vehicle_types = ("car", "lorry", "bike")
 vehicle_options = "Options are: {0}, {1}, {2}".format(vehicle_types[0], vehicle_types[1], vehicle_types[2])
 
 class Vehicle(object):
+    wheels = 4
     """define a vehicle"""
     def __init__(self, colour, model):
+        self.type = "Vehicle"
         self.colour = colour
-        self.colour = model
-        wheels = 4
+        self.model = model
 
 
 class Car(Vehicle):
     """create the car class, child of Vehicle"""
     def __init__(self, colour, model):
+        self.type = "Car"
         self.colour = colour
         self.model = model
+
+class Lorry(Vehicle):
+    """create the lorry class, child of Vehicle"""
+    def __init__(self, colour, model):
+        self.type = "Lorry"
+        self.colour = colour
+        self.model = model
+        self.wheels = 10
+
+class Bike(Vehicle):
+    """create the bike class, child of Vehicle"""
+    def __init__(self, colour, model):
+        self.type = "Bike"
+        self.colour = colour
+        self.model = model
+        self.wheels = 2
 
 
 def details(veh_type, count):
@@ -21,14 +40,14 @@ def details(veh_type, count):
     q2 = "What is the model of the {0}? ".format(veh_type)
     colour = (raw_input(q1)).lower()
     model = (raw_input(q2)).lower()
-    print colour
-    print model
-    print count
-    transport = "transport" + str(count)
     if veh_type == "car":
-        print transport
-        transport = Car(colour, model)
-
+        object_dict[count] = Car(colour, model)
+    if veh_type == "lorry":
+        object_dict[count] = Lorry(colour, model)
+    if veh_type == "bike":
+        object_dict[count] = Bike(colour, model)
+    else veh_type == "vehicle"
+        object_dict[count] = Vehicle(colour, model)
 
 def select_veh(count):
     found = False
@@ -45,15 +64,18 @@ def select_veh(count):
 
 if __name__ == "__main__":
 
-    i = 1
+    i = 2
     while i > 0:
         select_veh(i)
         i -= 1
         print "I = {0}".format(i)
 
 
-    for k in range(1,2):
-        print k
-        transport = "transport" + str(k)
-        print transport
-        print transport.model
+    for k in range(1,3):
+        #print "Dictionary => {0}".format(object_dict[k])
+        print "-" * 15
+        print "Type: " + object_dict[k].type
+        print "Colour: " + object_dict[k].colour
+        print "Model: " + object_dict[k].model
+        print "No. of wheels: {0}".format(object_dict[k].wheels)
+
