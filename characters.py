@@ -16,13 +16,14 @@ class Character(object):
         self.health -= damage
         print "{0} takes {2} damage, health is now {1}".format(self.creature_type, self.health, damage  )
 
-    def heal(self):
+    def heal(creature_type):
         self.health += 1
         print "{0}'s health is now {1}".format(self.creature_type, self.health)
 
     def show_health(self):
-        print "{0}'s health is now {1}".format(self.creature_type, self.health)
-        print "-" * 20
+       print "{0}'s health is now {1}".format(self.creature_type, self.health)
+       print "-" * 20
+
 
 class Goblin(Character):
     def __init__(self, health, creature_type):
