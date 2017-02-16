@@ -1,6 +1,7 @@
 object_dict = {1: 'transport1', 2: 'transport2', 3: 'transport3', }
 vehicle_types = ("car", "lorry", "bike")
 vehicle_options = "Options are: {0}, {1}, {2}".format(vehicle_types[0], vehicle_types[1], vehicle_types[2])
+loop_count = 4
 
 class Vehicle(object):
     wheels = 4
@@ -9,7 +10,6 @@ class Vehicle(object):
         self.type = "Vehicle"
         self.colour = colour
         self.model = model
-
 
 class Car(Vehicle):
     """create the car class, child of Vehicle"""
@@ -33,7 +33,6 @@ class Bike(Vehicle):
         self.colour = colour
         self.model = model
         self.wheels = 2
-
 
 def details(veh_type, count):
     q1 = "What is the colour of the {0}? ".format(veh_type)
@@ -64,15 +63,11 @@ def select_veh(count):
 
 if __name__ == "__main__":
 
-    i = 2
-    while i > 0:
+    for i in range(1,loop_count):
         select_veh(i)
-        i -= 1
-        print "I = {0}".format(i)
+        i += 1
 
-
-    for k in range(1,3):
-        #print "Dictionary => {0}".format(object_dict[k])
+    for k in range(1,loop_count):
         print "-" * 15
         print "Type: " + object_dict[k].type
         print "Colour: " + object_dict[k].colour

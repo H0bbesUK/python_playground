@@ -352,7 +352,7 @@ def skeleton(current_count):
     print """
 You emerge into a dank cold dungeon.
 You are aware you are not alone.
-Four undead join you in the dungeon.
+The undead join you in the dungeon.
 Well, {number_of_skel} colourful skeletons to be exact.
 \n(Press enter to continue)""".format(number_of_skel = len(skeleton_list))
     raw_input(">")
