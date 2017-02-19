@@ -1,6 +1,6 @@
 import random
-weapon_dict = {'Mace': 3, 'Sword': 5, 'Spear': 2, 'Axe': 3, 'Stick Of Truth': 6, 'Pike': 4, 'Knife': 1, }
-character_dict = {'Wizard': 180, 'Knight': 450, 'Paladin': 575, 'Thief': 350, }
+weapon_dict = {'Mace': 3, 'Sword': 5, 'Spear': 2, 'Axe': 3, 'Stick Of Truth': 6, 'Pike': 4, 'Knife': 1, 'A': 9}
+character_dict = {'Wizard': 180, 'Knight': 450, 'Paladin': 575, 'Thief': 350, 'A': 999}
 
 class Character(object):
     """docstring for Goblin"""

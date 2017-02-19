@@ -5,8 +5,8 @@ import random
 class Arena(object):
     """docstring for Arena
     in here I need:
-    - character
-    - character weapon
+    - character - done
+    - character weapon - done
     - enemy/random
     - enemy attack
     - character takes damage
@@ -27,6 +27,45 @@ class Arena(object):
             self.enemy.creature_type, self.enemy.weapon, self.enemy.health, self.enemy.weapon_damage)
         print "-" * 20
 
+    def fight(self):
+        any_death = False
+        """this is a turn, 
+        who goes first?
+        hero atack,
+        enemy(s) attac
+        subtract health
+        random heal?
+        random d64? have to beat (lowest) number to win """
+        # who goes first?
+        print "A D64 is rolled..."
+        hero_start_dice = dice_roll(64)
+        enemy_start_dice = dice_roll(64)
+        print  "{0} rolls a {1}".format(self.player.creature_type, hero_start_dice)
+        print  "{0} rolls a {1}".format(self.enemy.creature_type, enemy_start_dice)
+
+        if hero_start_dice < enemy_start_dice:
+            print "Hero goes first"
+            first_attacker = self.player
+            second_attacker = self.enemy
+        else:
+            print "Enemy goes first"
+            first_attacker = self.enemy
+            second_attacker = self.player
+
+        print "First attack by {0}".format(first_attacker.creature_type)
+
+        #this is the actual fight
+        while any_death != True:
+            damamge = (first_attacker.weapon_damage + dice_roll(6))
+            second_attacker.health -= damamge
+            print "{0} does {1} damage to {2}".format(first_attacker.creature_type, damamge, second_attacker.creature_type)
+            damamge = (second_attacker.weapon_damage + dice_roll(6))
+            first_attacker.health -= damamge
+            print "{0} does {1} damage to {2}".format(second_attacker.creature_type, damamge, first_attacker.creature_type)
+            battle1.update()
+            print first_attacker.health
+            print second_attacker.health
+            any_death = True
 
 def attack(weapon, plus_damage):
     pass
@@ -38,11 +77,6 @@ def is_dead(character, remaining_health):
         dead()
     else:   
         print "Still alive!"
-
-def each_turn():
-    """this is a turn, use weapon, take health or heal?"""
-    pass
-
 
 def dead():
     print "you be dead"
@@ -102,6 +136,7 @@ if __name__ == "__main__":
 
     battle1 = Arena(my_hero, goblin_boss)
     battle1.update()
+    battle1.fight()
 
 
     #is_dead(my_hero, my_hero.health)
