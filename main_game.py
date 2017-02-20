@@ -1,6 +1,11 @@
 import characters
 import random
+import time
 
+
+def dice_roll(number):
+    dice_value = random.randint(1, int(number))
+    return dice_value
 
 class Arena(object):
     """docstring for Arena
@@ -8,11 +13,11 @@ class Arena(object):
     - character - done
     - character weapon - done
     - enemy/random
-    - enemy attack
-    - character takes damage
-    - enemy takes damage
+    - enemy attack - done
+    - character takes damage - done
+    - enemy takes damage - done
     - someone is victorious
-    - use dice """
+    - use dice - done """
     def __init__(self, player, enemy):
         super(Arena, self).__init__()
         self.player = player
@@ -20,6 +25,10 @@ class Arena(object):
 
     def update(self):
         """keep track of what I'm doing"""
+        if self.player.health <= 0:
+            self.player.health = 0
+        if self.enemy.health <= 0:
+            self.enemy.health = 0
         print "-" * 20
         print ("{0} is carrying a {1} with a damage of {3}, health is currently {2}").format(
             self.player.creature_type, self.player.weapon, self.player.health, self.player.weapon_damage)
@@ -27,16 +36,7 @@ class Arena(object):
             self.enemy.creature_type, self.enemy.weapon, self.enemy.health, self.enemy.weapon_damage)
         print "-" * 20
 
-    def fight(self):
-        any_death = False
-        """this is a turn, 
-        who goes first?
-        hero atack,
-        enemy(s) attac
-        subtract health
-        random heal?
-        random d64? have to beat (lowest) number to win """
-        # who goes first?
+    def who_is_first(self):
         print "A D64 is rolled..."
         hero_start_dice = dice_roll(64)
         enemy_start_dice = dice_roll(64)
@@ -53,6 +53,16 @@ class Arena(object):
             second_attacker = self.player
 
         print "First attack by {0}".format(first_attacker.creature_type)
+        return first_attacker, second_attacker
+
+
+    def fight(self):
+        any_death = False
+        """this is a turn, 
+        random heal? """
+
+        # who goes first funct split out as recommended by Marcin
+        first_attacker, second_attacker = self.who_is_first()
 
         #this is the actual fight
         while any_death != True:
@@ -63,29 +73,28 @@ class Arena(object):
             first_attacker.health -= damamge
             print "{0} does {1} damage to {2}".format(second_attacker.creature_type, damamge, first_attacker.creature_type)
             battle1.update()
-            print first_attacker.health
-            print second_attacker.health
-            any_death = True
+            time.sleep(1)
+            any_death = is_dead(first_attacker.health, second_attacker.health)
+            print "rtrtr" * 10
+            #any_death = True
 
 def attack(weapon, plus_damage):
     pass
 
 
-def is_dead(character, remaining_health):
+def is_dead(hero, enemy):
     """checking if health is zero, how to include in each turn?"""
-    if remaining_health <= 0:
-        dead()
+    if hero <= 0 or enemy <= 0:
+        any_death = True
+        return any_death
     else:   
-        print "Still alive!"
+        print "All still alive!"
 
 def dead():
     print "you be dead"
     quit()
 
 
-def dice_roll(number):
-    dice_value = random.randint(1, int(number))
-    return dice_value
 
 
 def player_start():
@@ -135,7 +144,6 @@ if __name__ == "__main__":
     goblin_boss = characters.Enemy(100, "Goblin Boss", "Spear")
 
     battle1 = Arena(my_hero, goblin_boss)
-    battle1.update()
     battle1.fight()
 
 
