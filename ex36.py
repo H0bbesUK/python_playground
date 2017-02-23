@@ -139,7 +139,7 @@ def intro(current_count):
     name.append(the_name)
     scroll_timer(2, timer)
     #start(current_count)
-    final(current_count)
+    start(current_count)
 
 
 def dead(current_count):
